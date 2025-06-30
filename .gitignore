@@ -1,5 +1,4 @@
 data/
 *.tsv
 *.tsv.gz
-*.csv
 __pycache__/
