@@ -15,4 +15,7 @@ def load_datasets():
     df_merged = pd.merge(basics, ratings, on="tconst", how="inner")
     df_merged = pd.merge(df_merged, crew, on="tconst", how="inner")
 
+
+
+
     return df_merged, names

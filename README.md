@@ -1,73 +1,68 @@
-# IMDb Movie Ratings Analyzer
+# IMDb Movie Analysis
 
-Hi! This is a small Python project I created to practice working with real-world data using **Pandas** and **Matplotlib**. It analyzes movie ratings from the [IMDb Datasets](https://developer.imdb.com/non-commercial-datasets/) and gives some basic insights.
+This is a beginner-friendly Python project where I explore and analyze movie data from the IMDb dataset. The goal was to practice loading, cleaning, analyzing, and visualizing real-world data, all using Python!
 
----
+## What It Does
 
-## What it does
-
-This project answers 3 main questions:
-
-1. **Top 10 movies** based on IMDb rating  
-2. **Which decade** had the highest average movie rating?  
-3. **Top directors** based on average rating (with at least 3 films)
-
-It also generates:
-
-- 3 CSV output files
-- 3 charts (`.png`) using `matplotlib`
-
----
+- Downloads IMDb datasets (automatically!)
+- Loads and merges data from multiple .tsv files
+- Analyzes:
+  - Top 10 highest-rated movies
+  - Average ratings by decade
+  - Top directors (with at least 3 movies)
+- Generates bar charts and line plots for each of the above
+- Saves results as CSV and PNG files in the output folder
 
 ## Project Structure
 
-movie_ratings_analyzer/
-│
-├── main.py # Main analysis script
-├── setup_data.py # Download + extract IMDb datasets
-├── /data # Folder for IMDb .tsv files (created automatically)
-├── /output # CSV and chart outputs
-└── README.md
-
----
-
-## Setup
-
-1. Make sure you have Python 3.10+ installed.
-2. Install required packages:
-
-```bash
-pip install pandas matplotlib
 ```
-Download the IMDb datasets using:
-```bash
-python setup_data.py
+imdb-movie-analysis/
+├── data/                # IMDb .tsv files go here (downloaded automatically)
+├── output/              # Results (CSV + charts) saved here
+├── downloader.py        # Downloads and extracts the IMDb data
+├── main.py              # Main script that runs the full pipeline
+├── data_loader.py       # Loads and merges datasets
+├── analysis.py          # Functions for calculating top movies, decades, etc.
+├── visualize.py         # Generates plots from the analysis
+├── requirements.txt     # Required packages (pandas, matplotlib)
+├── .gitignore           # Ignores data and output in Git
+└── README.md            # This file
 ```
 
-This will download and extract ~2.2 GB of TSV files into a data/ folder.
+## How to Run It
 
-Run the analysis
+1. Make sure you have Python 3 installed
+2. Install required packages (you can use a virtual environment if you like):
+
 ```bash
+pip install -r requirements.txt
+```
+
+3. Download the data and run the analysis:
+
+```bash
+python downloader.py
 python main.py
 ```
-Outputs will be saved into the /output folder.
 
-## Output Examples
-output/top_10_movies.csv - Top rated movies
-output/decade_ratings.png - Line chart of average rating by decade
-output/top_directors.csv - Best directors with at least 3 movies
+4. Check the output/ folder for results!
 
-## What I learned
-Reading large TSV files with pandas
-Joining multiple datasets (merge(), groupby())
-Dealing with missing values (na_values, dropna())
-Creating charts with matplotlib
-Writing modular and readable Python code
+## Outputs
 
-## To do next
-Add user input options (e.g. top N movies)
-Export to SQLite
-Try seaborn visualizations
-Add unit tests
+- output/top_10_movies.csv and top10_movies.png
+- output/ratings_by_decade.csv and decade_ratings.png
+- output/top_directors.csv and top_directors.png
 
-Thanks for checking it out!
+## What I Learned
+
+- How to use pandas for real dataset merging and cleaning
+- Simple data analysis and grouping with groupby
+- Creating plots with matplotlib
+- Organizing code into multiple Python files (modularity)
+- Using os, urllib, gzip, and file paths
+
+## Author
+
+Made by a junior Python developer learning how to analyze data with code. I built this to learn more about working with real datasets and writing modular Python scripts.
+
+Feel free to fork or improve it!
